@@ -27,7 +27,7 @@ public class LdpController {
 	 * @param manager
 	 */
 	public LdpController(LdpManager manager) {
-		String path = Constants.INTERNAL_LITURGICAL_DAY_PROPERTIES_API_PATH + "/ldp/";
+		String path = Constants.INTERNAL_LITURGICAL_DAY_PROPERTIES_API_PATH + "/ldp";
 		ControllerUtils.reportPath(logger, "GET", path);
 
 		get(path , (request, response) -> {
