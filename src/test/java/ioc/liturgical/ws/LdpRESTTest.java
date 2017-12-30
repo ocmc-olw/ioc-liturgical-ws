@@ -12,7 +12,7 @@ import ioc.liturgical.ws.app.ServiceProvider;
 import ioc.liturgical.ws.constants.Constants;
 import ioc.liturgical.ws.constants.HTTP_RESPONSE_CODES;
 
-public class LdpTest {
+public class LdpRESTTest {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
