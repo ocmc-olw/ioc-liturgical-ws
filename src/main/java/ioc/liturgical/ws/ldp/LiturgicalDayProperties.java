@@ -297,12 +297,21 @@ public class LiturgicalDayProperties {
 			}
 		}
 
+		/*
+		 * Creates a LiturgicalDayProperties for the specified month
+		 * and day.  If the month and day are current or before the
+		 * current month and day, the year is set to next year.
+		 */
 		public LiturgicalDayProperties(String month, String day) {
-			GregorianCalendar todayDay = new GregorianCalendar();
+			GregorianCalendar todayDay = new GregorianCalendar(); // has a current time component
 			int theMonth = (Integer.parseInt(month))-1;
 			int theMonthDay = Integer.parseInt(day);
 			theDayLiturgical = new GregorianCalendar(todayDay.get(GregorianCalendar.YEAR),theMonth,theMonthDay);
-			// if the date is before today, do it for next year by default.
+			// Note: theDayLiturgical has a time component of MIDNIGHT. if todayDay has the same
+			// month and day as theDayLiturgical then theDayLiturgical *is* before todayDay
+			// due to time components.
+			
+			// if the theDayLiturgical is before todayDay, do it for next year by default.
 			if( theDayLiturgical.before(todayDay) ) {
 				theDayLiturgical.set(theDayLiturgical.get(GregorianCalendar.YEAR)+1,theMonth,theMonthDay);
 			}
@@ -320,6 +329,7 @@ public class LiturgicalDayProperties {
 			setYesterday(theDayLiturgical.getTimeInMillis());
 		}
 		
+		// update an existing LiturgicalDay Properties to the given year, month, and day
 		public void setDateTo(String year, String month, String day) {
 			int theYear = Integer.parseInt(year);
 			int theMonth = (Integer.parseInt(month))-1;
@@ -401,6 +411,7 @@ public class LiturgicalDayProperties {
 			paschaDateThisYear = computeDayOfPascha(year, useGregorianCalendar);
 			paschaDateLast = lastPaschaDate();
 			paschaDateNext = nextPaschaDate();
+			
 			// 10 weeks before Pascha (inclusive), Starts with the Sunday of Publican and Pharisee
 			setTriodionStartDateThisYear( timedelta(paschaDateThisYear, -(10*7) ) ); 
 			setTriodionStartDateLastYear( timedelta(paschaDateLastYear, -(10*7) ) ); 
@@ -410,7 +421,8 @@ public class LiturgicalDayProperties {
 			setPalmSundayDate( timedelta(paschaDateThisYear, -7 ) );
 			setPentecostDate ( timedelta(paschaDateThisYear, 49 ) );
 			setAllSaintsDate ( timedelta(paschaDateThisYear, 56 ) ); 			
-			setAllSaintsDateLastYear ( timedelta(paschaDateLastYear, 56 ) ); 				
+			setAllSaintsDateLastYear ( timedelta(paschaDateLastYear, 56 ) ); 
+			
 			// Pentecost starts  with Pascha and ends with All Saints, which is the day before the beginning
 			// of the Apostle's Fast.
 			if( theDayLiturgical.equals(paschaDateThisYear) ||
@@ -921,7 +933,7 @@ public class LiturgicalDayProperties {
 		}
 		
 		/** 
-		 * Get an interger representation of what we in Lent this date
+		 * Get an integer representation of what we in Lent this date
 		 * occurs in.
 		 * @return
 		 */
