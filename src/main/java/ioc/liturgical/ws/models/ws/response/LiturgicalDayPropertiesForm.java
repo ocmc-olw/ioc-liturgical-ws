@@ -18,39 +18,55 @@ import net.ages.alwb.utils.core.datastores.json.models.AbstractModel;
 @Attributes(title = "Liturgical Day Properties", description = "For the date shown below, this gives you the liturgical properties applicable for the date you requested.")
 public class LiturgicalDayPropertiesForm extends AbstractModel {
 	@Attributes(readonly = true, description = "The liturgical date used for the properties")
-	@Expose String theLiturgicalDate = "";
+	@Expose public String theLiturgicalDate = "";
+	
 	@Attributes(readonly = true, description = "The Julian date of the liturgical date")
-	@Expose String theJulianDate = "";
+	@Expose public String theJulianDate = "";
+	
 	@Attributes(readonly = true, description = "The Gregorian date of the liturgical date")
-	@Expose String theGregorianDate = "";
-	@Attributes(readonly = true, description = "")
-	@Expose String dayOfWeek = "";
-	@Attributes(readonly = true, description = "")
-	@Expose int modeOfWeek = 1;
-	@Attributes(readonly = true, description = "")
-	@Expose int eothinonNumber = 0;
-	@Attributes(readonly = true, description = "")
-	@Expose String triodionStartDateLastYear = "";
-	@Attributes(readonly = true, description = "")
-	@Expose String triodionStartDateThisYear = "";
-	@Attributes(readonly = true, description = "")
-	@Expose String triodionStartDateNextYear = "";
-	@Attributes(readonly = true, description = "")
-	@Expose String paschaDateThisYear = "";
-	@Attributes(readonly = true, description = "")
-	@Expose String allSaintsDateThisYear = "";
-	@Attributes(readonly = true, description = "")
+	@Expose public String theGregorianDate = "";
+	
+	@Attributes(readonly = true, description = "The day of the week")
+	@Expose public String dayOfWeek = "";
+	
+	@Attributes(readonly = true, description = "The mode of the week")
+	@Expose public int modeOfWeek = 1;
+	
+	@Attributes(readonly = true, description = "The eothin number")
+	@Expose public int eothinonNumber = 0;
+	
+	@Attributes(readonly = true, description = "The date that the Triodion started last yesr")
+	@Expose public String triodionStartDateLastYear = "";
+	
+	@Attributes(readonly = true, description = "The date that the Triodion starts last yesr")
+	@Expose public String triodionStartDateThisYear = "";
+	
+	@Attributes(readonly = true, description = "The date that the Triodion will start next yesr")
+	@Expose public String triodionStartDateNextYear = "";
+	
+	@Attributes(readonly = true, description = "The data of Pascha this year")
+	@Expose public String paschaDateThisYear = "";
+	
+	@Attributes(readonly = true, description = "The data of All Saints this year")
+	@Expose public String allSaintsDateThisYear = "";
+	
+	@Attributes(readonly = true, description = "The number of Sundays before the start of the Triodion")
 	@Expose int numberOfSundaysBeforeStartOfTriodion = 0;
-	@Attributes(readonly = true, description = "")
-	@Expose int daysUntilStartOfTriodion = 0;
-	@Attributes(readonly = true, description = "")
-	@Expose String lastSundayAfterElevationOfCross = "";
-	@Attributes(readonly = true, description = "")
-	@Expose int daysSinceLastSundayAfterElevationOfCross = 0;
-	@Attributes(readonly = true, description = "")
-	@Expose boolean isTriodion = false;
-	@Attributes(readonly = true, description = "")
-	@Expose boolean isPentecostarion = false;
+	
+	@Attributes(readonly = true, description = "The number of days until the start of the Triodion")
+	@Expose public int daysUntilStartOfTriodion = 0;
+	
+	@Attributes(readonly = true, description = "The last Sunday after the Elevation of the Cross")
+	@Expose public String lastSundayAfterElevationOfCross = "";
+	
+	@Attributes(readonly = true, description = "The number of days since the last Sunday after the Elevation of the Cross")
+	@Expose public int daysSinceLastSundayAfterElevationOfCross = 0;
+	
+	@Attributes(readonly = true, description = "Is the date in the Triodion?")
+	@Expose public boolean isTriodion = false;
+	
+	@Attributes(readonly = true, description = "Is the date in the Pentecostarion?")
+	@Expose public boolean isPentecostarion = false;
 	
 	SimpleDateFormat ymd = new SimpleDateFormat("yyyy/MM/dd");
 	SimpleDateFormat eymd = new SimpleDateFormat("EEEE yyyy/MM/dd");
