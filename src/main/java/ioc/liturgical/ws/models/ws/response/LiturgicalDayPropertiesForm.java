@@ -41,8 +41,8 @@ public class LiturgicalDayPropertiesForm extends AbstractModel {
 	@Attributes(readonly = true, description = "The date that the Triodion starts last yesr")
 	@Expose public String triodionStartDateThisYear = "";
 	
-	@Attributes(readonly = true, description = "The date that the Triodion will start next yesr")
-	@Expose public String triodionStartDateNextYear = "";
+	@Attributes(readonly = true, description = "The date for triodionStartDateThisYear and triodionStartDateNext are the same until Pascha.  At Pascha, the triodionStartDateNext will be set to the following year.")
+	@Expose public String triodionStartDateNext = "";
 	
 	@Attributes(readonly = true, description = "The data of Pascha this year")
 	@Expose public String paschaDateThisYear = "";
@@ -96,7 +96,7 @@ public class LiturgicalDayPropertiesForm extends AbstractModel {
 	    
 	    this.triodionStartDateLastYear       = formattedDate(day.getTriodionStartDateLastYear(), ymd);
 	    this.triodionStartDateThisYear       = formattedDate(day.getTriodionStartDateThisYear(), ymd);
-	    this.triodionStartDateNextYear       = formattedDate(day.getTriodionStartDateNextYear(), ymd);
+	    this.triodionStartDateNext           = formattedDate(day.getTriodionStartDateNextYear(), ymd);
 	    this.paschaDateThisYear              = formattedDate(day.getPaschaDateThisYear(), ymd);
 	    this.allSaintsDateThisYear           = formattedDate(day.getAllSaintsDateThisYear(), ymd);
 	    this.lastSundayAfterElevationOfCross = formattedDate(day.getSundayAfterElevationOfCrossDateLast(), ymd);
