@@ -119,14 +119,14 @@ public class ExternalDbManagerTest {
 			TemplateNode root = template.fetchNode();
 			TemplateNode rootSection = root.children.get(0);
 			TemplateNode actor = new TemplateNode();
-			actor.setTitle(TEMPLATE_NODE_TYPES.ACTOR);
+			actor.setTitle(TEMPLATE_NODE_TYPES.Actor);
 			TemplateNode sid = new TemplateNode();
 			sid.setTitle(TEMPLATE_NODE_TYPES.SID);
 			sid.setSubtitle("gr_gr_cog~actors~Priest");
 			actor.appendNode(sid);
 			rootSection.appendNode(actor);
 			TemplateNode dialog = new TemplateNode();
-			dialog.setTitle(TEMPLATE_NODE_TYPES.DIALOG);
+			dialog.setTitle(TEMPLATE_NODE_TYPES.Dialog);
 			sid.setSubtitle("gr_gr_cog~eu.lichrysbasil~euLI.Key0109.text");
 			dialog.appendNode(sid);
 			rootSection.appendNode(dialog);

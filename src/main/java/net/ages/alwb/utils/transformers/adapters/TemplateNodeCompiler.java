@@ -73,7 +73,7 @@ public class TemplateNodeCompiler {
 
 		for (TemplateNode child : node.children) {
 			switch (child.getTitle()) {
-			case ACTOR:
+			case Actor:
 				result.appendNode(compileNode(child));
 				break;
 			case APR:
@@ -222,14 +222,14 @@ public class TemplateNodeCompiler {
 				break;
 			case DEC:
 				break;
-			case DIALOG:
+			case Dialog:
 				result.appendNode(compileNode(child));
 				break;
 			case FEB:
 				break;
 			case FRIDAY:
 				break;
-			case HYMN:
+			case Hymn:
 				result.appendNode(compileNode(child));
 				break;
 			case INSERT_SECTION:
@@ -270,10 +270,10 @@ public class TemplateNodeCompiler {
 				break;
 			case OTHERWISE:
 				break;
-			case PARAGRAPH:
+			case Paragraph:
 				result.appendNode(compileNode(child));
 				break;
-			case READING:
+			case Reading:
 				result.appendNode(compileNode(child));
 				break;
 			case RID:
@@ -281,7 +281,7 @@ public class TemplateNodeCompiler {
 				child.setSubtitle(this.resolveId(child.getSubtitle()));
 				result.appendNode(child);
 				break;
-			case RUBRIC:
+			case Rubric:
 				result.appendNode(compileNode(child));
 				break;
 			case SATURDAY:
@@ -307,7 +307,7 @@ public class TemplateNodeCompiler {
 				break;
 			case TUESDAY:
 				break;
-			case VERSE:
+			case Verse:
 				result.appendNode(compileNode(child));
 				break;
 			case WEDNESDAY:
