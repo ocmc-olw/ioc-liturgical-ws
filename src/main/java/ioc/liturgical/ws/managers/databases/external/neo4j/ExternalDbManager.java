@@ -3167,24 +3167,24 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 			return result;
 		}
 
-		public String HtmlPagePre = "<!DOCTYPE html><html lang='en-us'><head><meta charset='utf-8'><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><title><a href='https://olw.ocmc.org'>OLW</a> Database Lookup</title><meta name='viewport' content='width=device-width,minimum-scale=1'></head> <body><h1>OLW Database Lookup</h1><table><tbody>";
-		public String HtmlPagePost = "</tbody></table></body></html>";
+		public String HtmlPagePre = "<!DOCTYPE html><html lang='en-us'><head><meta charset='utf-8'><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><title>OLW DB Lookup</title><meta name='viewport' content='width=device-width,minimum-scale=1'></head> <body><h1><a href='https://olw.ocmc.org'>OLW</a>  Database Lookup</h1><table><tbody>";
+		public String HtmlPagePost = "</tbody></table><p>Only publicly available versions are shown.</p></body></html>";
 		
 		public String WrapHtmlRow(String id, String value) {
 			StringBuilder sb = new StringBuilder();
 			sb.append("<tr>");
-			sb.append("<td style=\"padding: 2em;\">");
+			sb.append("<td style=\"padding: 2em;border: 1px solid #cccccc;\">");
 			sb.append(id);
 			sb.append("</td>");
-			sb.append("<td style=\"padding: 2em;\">");
+			sb.append("<td style=\"padding: 2em;border: 1px solid #cccccc;\">");
 			sb.append(value);
 			sb.append("</td>");
 			sb.append("</tr>");
 			return sb.toString();
 		}
 
-		// get for ID if the doc is public. Returns HTML
-		public String getHtmlForIdPublic(String id) {
+		// retrieves value for specified ID and wraps it as an HTML row
+		public String getHtmlRowForIdPublic(String id) {
 			StringBuilder sb = new StringBuilder();
 			ResultJsonObjectArray result  = new ResultJsonObjectArray(true);
 			try {
@@ -3202,18 +3202,45 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 				result  = neo4jManager.getForQuery(q.toString());
 				result.setQuery(q.toString());
 				result.setValueSchemas(internalManager.getSchemas(result.getResult(), null));
-				sb.append(this.HtmlPagePre);
 				JsonObject first = result.getFirstObject();
 				if (! first.get("visibility").getAsString().equals("PUBLIC")) {
 				  sb.append(this.WrapHtmlRow(id, "not a public record"));
 				} else {
 				  sb.append(this.WrapHtmlRow(id, first.get("value").getAsString()));
 				}
-				sb.append(this.HtmlPagePost);
 			} catch (Exception e) {
 				result.setStatusCode(HTTP_RESPONSE_CODES.BAD_REQUEST.code);
 				result.setStatusMessage(e.getMessage());
 			}
+			return sb.toString();
+		}
+		
+		// get for ID if the doc is public. Returns HTML
+		// for that value as well as matching topic and key values
+		public String getHtmlForIdPublic(String id) {
+			StringBuilder sb = new StringBuilder();
+			// get the requested value
+			sb.append(this.HtmlPagePre);
+			sb.append(this.getHtmlRowForIdPublic(id));
+			try {
+				String[] parts = id.split("~");
+				if (parts.length == 3) {
+					List<String> excludedIds = new ArrayList<String>();
+					String grkId = "";
+					String topicKey = parts[1] + Constants.ID_DELIMITER + parts[2];
+					grkId = "gr_gr_cog" + Constants.ID_DELIMITER + topicKey;
+					excludedIds.add(grkId);
+					// if the request was not for the Greek, add it as an additional value
+					if (! parts[0].equals("gr_gr_cog")) {
+						sb.append(this.getHtmlRowForIdPublic(grkId));
+						excludedIds.add(id);
+					}
+					sb.append(this.getHtmlRowsForIdEndsWith(topicKey, excludedIds));
+				}
+			} catch (Exception e) {
+				
+			}
+			sb.append(this.HtmlPagePost);
 			return sb.toString();
 		}
 
@@ -3462,6 +3489,19 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 			  result.values = newValues;
 			  result.valueCount = (long) newValues.size();
 			return result;
+		}
+		
+		// gets all the ids that end with the specified topic and key
+		// and returns them wrapped as html rows.
+		String getHtmlRowsForIdEndsWith(String id, List<String> excludedIds) {
+			StringBuilder sb = new StringBuilder();
+			ResultJsonObjectArray json = this.getForIdEndsWith(id); 
+			for (JsonObject o : json.getResult()) {
+				if (! excludedIds.contains(o.get("id").getAsString())) {
+					sb.append(this.WrapHtmlRow(o.get("id").getAsString(), o.get("value").getAsString()));
+				}
+			}
+			return sb.toString();
 		}
  		/**
  		 * 

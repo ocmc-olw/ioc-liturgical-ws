@@ -794,7 +794,7 @@ public class Neo4jController {
 		
 		// public endpoint to retrieve docs based on topic and key
 		pCnt++;
-		path = Constants.EXTERNAL_DATASTORE_API_PATH + "/id/*/*";
+		path = Constants.EXTERNAL_DATASTORE_API_PATH + "/ltk/*/*";
 		ControllerUtils.reportPath(logger, "GET", path, pCnt);
 		get(path, (request, response) -> {
 			response.type(Constants.UTF_JSON);
