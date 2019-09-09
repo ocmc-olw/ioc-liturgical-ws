@@ -3136,6 +3136,87 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 			return result;
 		}
 
+		// get for ID if the doc is public
+		public ResultJsonObjectArray getForIdPublic(String id) {
+			ResultJsonObjectArray result  = new ResultJsonObjectArray(true);
+			try {
+				CypherQueryBuilderForDocs builder = new CypherQueryBuilderForDocs(
+						false
+						, false
+						)
+						.MATCH()
+						.LABEL(TOPICS.ROOT.label)
+						.WHERE("id")
+						.EQUALS(id)
+						.RETURN("*")
+						;
+				CypherQueryForDocs q = builder.build();
+				result  = neo4jManager.getForQuery(q.toString());
+				result.setQuery(q.toString());
+				result.setValueSchemas(internalManager.getSchemas(result.getResult(), null));
+				if (!result.getFirstObject().get("visibility").getAsString().equals("PUBLIC")) {
+					result.values = new ArrayList<JsonObject>();
+					result.valueCount = (long) 0;
+					result.setStatusCode(HTTP_RESPONSE_CODES.UNAUTHORIZED.code);
+					result.setStatusMessage("not a public record");
+				}
+			} catch (Exception e) {
+				result.setStatusCode(HTTP_RESPONSE_CODES.BAD_REQUEST.code);
+				result.setStatusMessage(e.getMessage());
+			}
+			return result;
+		}
+
+		public String HtmlPagePre = "<!DOCTYPE html><html lang='en-us'><head><meta charset='utf-8'><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><title><a href='https://olw.ocmc.org'>OLW</a> Database Lookup</title><meta name='viewport' content='width=device-width,minimum-scale=1'></head> <body><h1>OLW Database Lookup</h1><table><tbody>";
+		public String HtmlPagePost = "</tbody></table></body></html>";
+		
+		public String WrapHtmlRow(String id, String value) {
+			StringBuilder sb = new StringBuilder();
+			sb.append("<tr>");
+			sb.append("<td style=\"padding: 2em;\">");
+			sb.append(id);
+			sb.append("</td>");
+			sb.append("<td style=\"padding: 2em;\">");
+			sb.append(value);
+			sb.append("</td>");
+			sb.append("</tr>");
+			return sb.toString();
+		}
+
+		// get for ID if the doc is public. Returns HTML
+		public String getHtmlForIdPublic(String id) {
+			StringBuilder sb = new StringBuilder();
+			ResultJsonObjectArray result  = new ResultJsonObjectArray(true);
+			try {
+				CypherQueryBuilderForDocs builder = new CypherQueryBuilderForDocs(
+						false
+						, false
+						)
+						.MATCH()
+						.LABEL(TOPICS.ROOT.label)
+						.WHERE("id")
+						.EQUALS(id)
+						.RETURN("*")
+						;
+				CypherQueryForDocs q = builder.build();
+				result  = neo4jManager.getForQuery(q.toString());
+				result.setQuery(q.toString());
+				result.setValueSchemas(internalManager.getSchemas(result.getResult(), null));
+				sb.append(this.HtmlPagePre);
+				JsonObject first = result.getFirstObject();
+				if (! first.get("visibility").getAsString().equals("PUBLIC")) {
+				  sb.append(this.WrapHtmlRow(id, "not a public record"));
+				} else {
+				  sb.append(this.WrapHtmlRow(id, first.get("value").getAsString()));
+				}
+				sb.append(this.HtmlPagePost);
+			} catch (Exception e) {
+				result.setStatusCode(HTTP_RESPONSE_CODES.BAD_REQUEST.code);
+				result.setStatusMessage(e.getMessage());
+			}
+			return sb.toString();
+		}
+
 		public ResultJsonObjectArray getForId(
 				String id
 				, String label
@@ -3361,6 +3442,27 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 			return result;
 		}
 
+ 		// gets liturgical text for id ending with specified value
+		public ResultJsonObjectArray getForIdEndsWith(String id) {
+			List<JsonObject> newValues = new ArrayList<JsonObject>();
+			CypherQueryBuilderForDocs builder = new CypherQueryBuilderForDocs()
+					.MATCH()
+					.LABEL(TOPICS.TEXT_LITURGICAL.label)
+					.WHERE("id")
+					.ENDS_WITH(id)
+					.RETURN("*")
+					.ORDER_BY("doc.seq");
+			CypherQueryForDocs q = builder.build();
+			ResultJsonObjectArray result = getForQuery(q.toString(), true, true);
+			  for (JsonObject value : result.values) {
+				 if ( value.get("visibility").getAsString().equals("PUBLIC")) {
+					 newValues.add(value);
+				 }
+			  }
+			  result.values = newValues;
+			  result.valueCount = (long) newValues.size();
+			return result;
+		}
  		/**
  		 * 
  		 * @param requestor the username of the user making the request

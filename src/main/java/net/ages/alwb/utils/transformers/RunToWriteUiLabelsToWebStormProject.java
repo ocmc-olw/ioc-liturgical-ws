@@ -101,7 +101,7 @@ import com.google.gson.JsonObject;
 			String olwPath = "/Users/mac002/Git/ocmc/ioc-tms-app/src/labels";
 			String uid = System.getenv("uid");
 			String pwd = System.getenv("pwd");
-			String url= "db.olw.liml.org"; // "localhost"; // "159.203.89.233";
+			String url= "db.liml.org"; // "localhost"; // "159.203.89.233";
 			Map<String, String> systems = new TreeMap<String,String>();
 			systems.put("ilr", reactPath);
 			systems.put("olw", olwPath);

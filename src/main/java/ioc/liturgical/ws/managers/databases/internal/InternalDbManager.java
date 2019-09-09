@@ -3439,7 +3439,7 @@ public class InternalDbManager implements HighLevelDataStoreInterface {
 	 * @return
 	 */
 	public boolean isLibAuthor(String library, String username) {
-		return hasRole(ROLES.AUTHOR,library,username);
+		return isLibAdmin(library, username) || hasRole(ROLES.AUTHOR,library,username);
 	}
 
 	/**
@@ -3449,7 +3449,7 @@ public class InternalDbManager implements HighLevelDataStoreInterface {
 	 * @return
 	 */
 	public boolean isLibReader(String library, String username) {
-		return hasRole(ROLES.READER, library,username);
+		return isLibAuthor(library, username) || hasRole(ROLES.READER, library,username);
 	}
 
 	/**

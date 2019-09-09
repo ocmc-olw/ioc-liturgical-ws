@@ -550,9 +550,11 @@ public class ServiceProvider {
 					} else {
 						// we do not require authorization to attempt to login, or to get the Liturgical Day Properties
 						if (
-								request.pathInfo().startsWith(Constants.INTERNAL_DATASTORE_API_PATH +"/login/form")
+						request.pathInfo().startsWith(Constants.INTERNAL_DATASTORE_API_PATH +"/login/form")
 								|| request.pathInfo().startsWith(Constants.INTERNAL_DATASTORE_API_PATH +"/info")
 								|| request.pathInfo().startsWith(Constants.EXTERNAL_LITURGICAL_DAY_PROPERTIES_API_PATH)
+								|| request.pathInfo().startsWith(Constants.EXTERNAL_DATASTORE_API_PATH + "/id")
+								|| request.pathInfo().startsWith(Constants.EXTERNAL_DATASTORE_API_PATH + "/ltk")
 								) {
 							// pass through to handler
 						} else {

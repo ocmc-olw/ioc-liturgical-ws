@@ -29,6 +29,7 @@ import static spark.Spark.delete;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonArray;
 
 import ioc.liturgical.ws.app.ServiceProvider;
 import ioc.liturgical.ws.constants.Constants;
@@ -749,7 +750,6 @@ public class Neo4jController {
         			, requestor
         			).toJsonString();
 		});
-
 		pCnt++;
 		path = ENDPOINTS_DB_API.DOCS.toLibraryTopicKeyPath();
 		ControllerUtils.reportPath(logger, "GET", path, pCnt);
@@ -765,6 +765,44 @@ public class Neo4jController {
 			return json.toJsonString();
 		});
 
+		// Use this for a generic read only api /db/api/v1/ltk/*/*/*
+		pCnt++;
+		path = Constants.EXTERNAL_DATASTORE_API_PATH + "/ltk/*/*/*";
+		ControllerUtils.reportPath(logger, "GET", path, pCnt);
+		get(path, (request, response) -> {
+			response.type(Constants.UTF_JSON);
+			String id = ServiceProvider.createStringFromSplat(request.splat(), Constants.ID_DELIMITER);
+			ResultJsonObjectArray json = externalManager.getForIdPublic(id);
+			if (json.valueCount > 0) {
+				response.status(HTTP_RESPONSE_CODES.OK.code);
+			} else {
+				response.status(HTTP_RESPONSE_CODES.NOT_FOUND.code);
+			}
+			return json.toJsonString();
+		});
+		
+		// Use this for a generic read only api /db/api/v1/id/*/*/*
+		// Returns HTML
+		pCnt++;
+		path = Constants.EXTERNAL_DATASTORE_API_PATH + "/id/*/*/*";
+		ControllerUtils.reportPath(logger, "GET", path, pCnt);
+		get(path, (request, response) -> {
+			response.type(Constants.TEXT_HTML);
+			String id = ServiceProvider.createStringFromSplat(request.splat(), Constants.ID_DELIMITER);
+			return  externalManager.getHtmlForIdPublic(id);
+		});
+		
+		// public endpoint to retrieve docs based on topic and key
+		pCnt++;
+		path = Constants.EXTERNAL_DATASTORE_API_PATH + "/id/*/*";
+		ControllerUtils.reportPath(logger, "GET", path, pCnt);
+		get(path, (request, response) -> {
+			response.type(Constants.UTF_JSON);
+			response.status(HTTP_RESPONSE_CODES.OK.code);
+			String id = ServiceProvider.createStringFromSplat(request.splat(), Constants.ID_DELIMITER);
+			ResultJsonObjectArray json = externalManager.getForIdEndsWith(id);
+			return json.toJsonString();
+		});
 		// DELETE relationship for parameter id, where id is the id of the properties in the relationship itself.
 		path = ENDPOINTS_DB_API.LINKS.toLibraryTopicKeyPath();
 		ControllerUtils.reportPath(logger, "DELETE", path);
