@@ -836,6 +836,33 @@ public class Neo4jConnectionManager implements LowLevelDataStoreInterface {
 		return result;
 	}
 
+	public RequestStatus mergeWhereEqual(LTKVJsonObject doc) throws DbException {
+		RequestStatus result = new RequestStatus();
+		int count = 0;
+		setIdConstraint(doc.getSchemaAsLabel());
+		String query = 
+				"match (n) where n.id = \"" 
+				+ doc.get_id() 
+		        + "\" set n = {props} return count(n)";
+		try (org.neo4j.driver.v1.Session session = dbDriver.session()) {
+			Map<String,Object> props = ModelHelpers.getAsPropertiesMap(doc);
+			StatementResult neoResult = session.run(query, props);
+			count = neoResult.consume().counters().propertiesSet();
+			if (count > 0) {
+		    	result.setCode(HTTP_RESPONSE_CODES.OK.code);
+		    	result.setMessage(HTTP_RESPONSE_CODES.OK.message + ": updated " + doc.get_id());
+			} else {
+		    	result.setCode(HTTP_RESPONSE_CODES.BAD_REQUEST.code);
+		    	result.setMessage(HTTP_RESPONSE_CODES.BAD_REQUEST.message + " " + doc.get_id());
+			}
+		} catch (Exception e){
+			result.setCode(HTTP_RESPONSE_CODES.BAD_REQUEST.code);
+			result.setMessage(HTTP_RESPONSE_CODES.BAD_REQUEST.message);
+			result.setDeveloperMessage(e.getMessage());
+		}
+    	recordQuery(query, result.getCode(), count);
+		return result;
+	}
 
 	public RequestStatus updateWhereEqual(LTKDb doc, boolean createTransaction) throws DbException {
 		RequestStatus result = new RequestStatus();

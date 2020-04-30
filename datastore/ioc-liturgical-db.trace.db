@@ -1426,3 +1426,23 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:/Users/mac00
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:337)
 	... 26 more
+09-09 09:48:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1469)
+	at org.h2.jdbc.JdbcConnection.checkClosedForWrite(JdbcConnection.java:1454)
+	at org.h2.jdbc.JdbcConnection.rollback(JdbcConnection.java:487)
+	at org.h2.jdbcx.JdbcXAConnection.getConnection(JdbcXAConnection.java:107)
+	at org.h2.jdbcx.JdbcConnectionPool.getConnectionNow(JdbcConnectionPool.java:229)
+	at org.h2.jdbcx.JdbcConnectionPool.getConnection(JdbcConnectionPool.java:199)
+	at net.ages.alwb.utils.core.datastores.db.h2.manager.H2ConnectionManager.queryForJson(H2ConnectionManager.java:486)
+	at net.ages.alwb.utils.core.datastores.db.h2.manager.H2ConnectionManager.queryForJsonWhereEqual(H2ConnectionManager.java:449)
+	at ioc.liturgical.ws.managers.databases.internal.InternalDbManager.getForId(InternalDbManager.java:336)
+	at ioc.liturgical.ws.managers.databases.internal.InternalDbManager.isDomainLibrary(InternalDbManager.java:1567)
+	at ioc.liturgical.ws.managers.databases.internal.InternalDbManager.existsLibrary(InternalDbManager.java:1562)
+	at ioc.liturgical.ws.managers.databases.external.neo4j.ExternalDbManager.initializeUiLibraries(ExternalDbManager.java:991)
+	at ioc.liturgical.ws.managers.databases.external.neo4j.ExternalDbManager.<init>(ExternalDbManager.java:254)
+	at ioc.liturgical.ws.app.ServiceProvider.main(ServiceProvider.java:434)

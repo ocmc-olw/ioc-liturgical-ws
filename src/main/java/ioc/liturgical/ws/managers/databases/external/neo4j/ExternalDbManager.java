@@ -2828,7 +2828,6 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 					IdManager idManager = new IdManager(libTo, o.get("topic").getAsString(), o.get("key").getAsString());
 					doc.setId(idManager.getId());
 					doc.setVisibility(VISIBILITY.PRIVATE);
-					System.out.println(doc.getId());
 					neo4jManager.insert(doc);
 				}
 			} catch (Exception e) {
@@ -3230,6 +3229,7 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 					String topicKey = parts[1] + Constants.ID_DELIMITER + parts[2];
 					grkId = "gr_gr_cog" + Constants.ID_DELIMITER + topicKey;
 					excludedIds.add(grkId);
+					excludedIds.add("en_us_public" + Constants.ID_DELIMITER + topicKey);
 					// if the request was not for the Greek, add it as an additional value
 					if (! parts[0].equals("gr_gr_cog")) {
 						sb.append(this.getHtmlRowForIdPublic(grkId));
@@ -3497,8 +3497,10 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 			StringBuilder sb = new StringBuilder();
 			ResultJsonObjectArray json = this.getForIdEndsWith(id); 
 			for (JsonObject o : json.getResult()) {
-				if (! excludedIds.contains(o.get("id").getAsString())) {
-					sb.append(this.WrapHtmlRow(o.get("id").getAsString(), o.get("value").getAsString()));
+				if (o.get("value").getAsString().length() > 0) {
+					if (! excludedIds.contains(o.get("id").getAsString())) {
+						sb.append(this.WrapHtmlRow(o.get("id").getAsString(), o.get("value").getAsString()));
+					}
 				}
 			}
 			return sb.toString();
