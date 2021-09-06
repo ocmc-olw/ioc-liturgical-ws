@@ -26,7 +26,7 @@ import ioc.liturgical.ws.managers.databases.external.neo4j.ExternalDbManager;
 
 /**
  * Reads the index of available sacraments and services from
- * the AGES Initiatives website, and converts it to json
+ * the GOARCH DCS website, and converts it to json
  * data that can be rendered by a React BootstrapTable
  * @author mac002
  *
@@ -35,18 +35,22 @@ public class AgesWebsiteIndexToReactTableData {
 	private static final Logger logger = LoggerFactory.getLogger(AgesWebsiteIndexToReactTableData.class);
 	public static String typePdf = "PDF/Print";
 	public static String typeText = "Text/Music";
-	private String baseUrl = "http://www.agesinitiatives.com/dcs/public/dcs/"; 
+//	private String baseUrl = "http://www.agesinitiatives.com/dcs/public/dcs/";
+	private String baseUrl = "https://dcs.goarch.org/goa/dcs/";
 	private String booksPath = "h/b/";
 	private String servicesIndex = baseUrl + "servicesindex.html";
 	private String booksIndex = baseUrl + "booksindex.html";
 	private String jsonservicesIndex = baseUrl + "servicesindex.json";
-	private String olwBaseUrl = "http://www.agesinitiatives.com/dcs/books/dcs/";
+	private String olwBaseUrl = "https://books-liml.netlify.app/books/dcs/";
+//	private String olwBaseUrl = "http://www.agesinitiatives.com/dcs/books/dcs/";
 	private String olwBooksUrl = olwBaseUrl + "booksindex.html";
-	private String agesOcmcBaseUrl = "http://www.agesinitiatives.com/dcs/ocmc/dcs/";
+	private String agesOcmcBaseUrl = "https://books-liml.netlify.app/ocmc/dcs/";
+//	private String agesOcmcBaseUrl = "http://www.agesinitiatives.com/dcs/ocmc/dcs/";
 	private String agesOcmcIndex = "customindex.html";
 	private String agesOcmcJsonIndex = agesOcmcBaseUrl + "h/c/index.json";
 	private String readingsIndex = agesOcmcBaseUrl + agesOcmcIndex;
 	private String theophanyUrl = Constants.LIML_URL + Constants.LIML_STATIC + "theophany.html";
+	private String typikaUrl = Constants.LIML_URL + Constants.LIML_STATIC + "dcs/h/b/ho/s07/h61/gr-en/index.html";
 	private String mexicoLiUrl = Constants.LIML_URL + Constants.LIML_STATIC + "mexico/bk.li.chrysbasil.html";
 	private String octoechosUrl = Constants.LIML_URL + Constants.LIML_STATIC + "dcs/h/b/oc/";
 	private String limlBooksUrl = Constants.LIML_URL + Constants.LIML_STATIC + "dcs/h/b/";
@@ -70,16 +74,39 @@ public class AgesWebsiteIndexToReactTableData {
 		AgesIndexTableRowData row = new AgesIndexTableRowData(printPretty);
 
 		row.setDayOfWeek("any");
+		row.setType("Liturgy of St. Chrysostom");
+		row.setDate("any");
+		row.setUrl(base + "skeleton/liturgy/chrys/gr-en/index.html");
+		this.additionalAgesBookRows.add(row);
+
+		row = new AgesIndexTableRowData(printPretty);
+		row.setDayOfWeek("any");
+		row.setType("Liturgy of St. James");
+		row.setDate("any");
+		row.setUrl(base + "liturgy/james/gr-en/index.html");
+		this.additionalAgesBookRows.add(row);
+
+		row = new AgesIndexTableRowData(printPretty);
+		row.setDayOfWeek("any");
+		row.setType("Typika Service (no priest)");
+		row.setDate("any");
+		row.setUrl(base + "ho/s07/h61/gr-en/index.html");
+		this.additionalAgesBookRows.add(row);
+
+		row = new AgesIndexTableRowData(printPretty);
+		row.setDayOfWeek("any");
 		row.setType("Service of Preparation for Holy Communion (Ἀκολουθία τῆς Θείας Μεταλήψεως)");
 		row.setDate("any");
 		row.setUrl(base + "ho/s21/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
+
 		row = new AgesIndexTableRowData(printPretty);
 		row.setDayOfWeek("any");
 		row.setType("Service of Small Paraklesis (Ἀκολουθία τοῦ Μικροῦ Παρακλητικοῦ Κανόνος)");
 		row.setDate("any");
 		row.setUrl(base + "ho/s23/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
+
 		row = new AgesIndexTableRowData(printPretty);
 		row.setDayOfWeek("any");
 		row.setType("Service of Great Paraklesis (Ἀκολουθία τοῦ Μεγάλου Παρακλητικοῦ Κανόνος)");
@@ -280,7 +307,11 @@ public class AgesWebsiteIndexToReactTableData {
 		Connection readingsIndexConnection = null;
 		try {
 			readingsIndexConnection = Jsoup.connect(olwBooksUrl);
-			readingsIndexDoc = readingsIndexConnection.timeout(60*1000).maxBodySize(0).get();
+			readingsIndexDoc = readingsIndexConnection
+					.timeout(60*1000)
+					.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15")
+					.maxBodySize(0)
+					.get();
 			Elements books = readingsIndexDoc.select("a.index-books-file-link");
 			for (Element bookAnchor : books) {
 				String href = bookAnchor.attr("href");
@@ -367,7 +398,7 @@ public class AgesWebsiteIndexToReactTableData {
 			theophany.setDate("m01/d06");
 			theophany.setUrl(theophanyUrl);
 			result.addRow(theophany);
-			
+
 			AgesIndexTableRowData liMexico = new AgesIndexTableRowData(printPretty);
 			liMexico.setDayOfWeek("any");
 			liMexico.setType("Divine Liturgy for Greek Orthodox Metropolis of Mexico, Central America, Colombia and Venezuela, and the Caribbean Islands");
@@ -475,7 +506,10 @@ public class AgesWebsiteIndexToReactTableData {
 		Connection readingsIndexConnection = null;
 		try {
 			readingsIndexConnection = Jsoup.connect(readingsIndex);
-			readingsIndexDoc = readingsIndexConnection.timeout(60*1000).maxBodySize(0).get();
+			readingsIndexDoc = readingsIndexConnection
+					.timeout(60*1000)
+					.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15")
+					.maxBodySize(0).get();
 			Elements months = readingsIndexDoc.select("a.index-custom-file-link");
 			for (Element monthAnchor : months) {
 				String href = monthAnchor.attr("href");
@@ -516,7 +550,10 @@ public class AgesWebsiteIndexToReactTableData {
 		Connection readingsIndexConnection = null;
 		try {
 			datesIndexConnection = Jsoup.connect(servicesIndex);
-			servicesIndexDoc = datesIndexConnection.timeout(60*1000).maxBodySize(0).get();
+			servicesIndexDoc = datesIndexConnection
+					.timeout(60*1000)
+					.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15")
+					.maxBodySize(0).get();
 			Elements days = servicesIndexDoc.select("a.index-day-link");
 			for (Element day : days) {
 				String href = day.attr("href");
@@ -526,7 +563,10 @@ public class AgesWebsiteIndexToReactTableData {
 				String date = year + "/" + month + "/" + monthDay;
 				String dayOfWeekName = day.text().trim().split("-")[1];
 				servicesIndexConnection = Jsoup.connect(baseUrl + href);
-				dayIndexDoc = servicesIndexConnection.timeout(60*1000).maxBodySize(0).get();
+				dayIndexDoc = servicesIndexConnection
+						.timeout(60*1000)
+						.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15")
+						.maxBodySize(0).get();
 				Elements services = dayIndexDoc.select("a.index-file-link");
 				for (Element service : services) {
 					String fileHref = service.attr("href");
@@ -546,7 +586,10 @@ public class AgesWebsiteIndexToReactTableData {
 				}
 			}
 			booksIndexConnection = Jsoup.connect(booksIndex);
-			booksIndexDoc = booksIndexConnection.timeout(60*1000).maxBodySize(0).get();
+			booksIndexDoc = booksIndexConnection
+					.timeout(60*1000)
+					.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15")
+					.maxBodySize(0).get();
 			Element menu = booksIndexDoc.getElementById("dcs_tree");
 			Elements anchors = menu.select("li > ul > li > ul > li");
 			for (Element anchor : anchors) {
@@ -581,6 +624,7 @@ public class AgesWebsiteIndexToReactTableData {
 			String s  = serviceIndexConnection
 					.timeout(60*1000)
 					.maxBodySize(0)
+					.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15")
 					.ignoreContentType(true)
 					.execute()
 					.body();
@@ -602,6 +646,7 @@ public class AgesWebsiteIndexToReactTableData {
 					.timeout(60*1000)
 					.maxBodySize(0)
 					.ignoreContentType(true)
+					.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15")
 					.execute()
 					.body();
 			JsonParser p = new JsonParser();
@@ -660,7 +705,11 @@ public class AgesWebsiteIndexToReactTableData {
 				}
 			}
 			booksIndexConnection = Jsoup.connect(booksIndex);
-			booksIndexDoc = booksIndexConnection.timeout(60*1000).maxBodySize(0).get();
+			booksIndexDoc = booksIndexConnection
+					.timeout(60*1000)
+					.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15")
+					.maxBodySize(0)
+					.get();
 			Element menu = booksIndexDoc.getElementById("dcs_tree");
 			Elements anchors = menu.select("li > ul > li > ul > li");
 			for (Element anchor : anchors) {

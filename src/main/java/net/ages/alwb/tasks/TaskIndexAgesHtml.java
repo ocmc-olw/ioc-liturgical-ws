@@ -29,7 +29,7 @@ import net.ages.alwb.utils.transformers.adapters.AgesHtmlToEditableLDOM;
 
 /**
  * Runs a task (separate thread) to index the HTML used for the editor
- * and generator, which mostly come from the AGES Initiatives website.
+ * and generator, which mostly come from the GOARCH DCS website.
  * 
  * That is, it makes a list of all topic~keys and which html pages they occur in.
  * 

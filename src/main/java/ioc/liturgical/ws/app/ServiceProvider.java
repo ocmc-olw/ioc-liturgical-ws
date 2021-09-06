@@ -189,7 +189,9 @@ public class ServiceProvider {
         }		
 		ws_pwd = System.getenv("WS_PWD");
 		if (ws_pwd == null) {
-			ws_pwd = args[0];
+			if (args.length > 0) {
+				ws_pwd = args[0];
+			}
 		}
 		ws_usr = "wsadmin";
 		boolean initializeExternalDb = true;
@@ -322,7 +324,9 @@ public class ServiceProvider {
 				try {
 					messagingToken = System.getenv("MESSAGING_TOKEN");
     	    		if (messagingToken == null) {
-        	        	messagingToken = args[1];
+    	    			if (args.length > 1) {
+							messagingToken = args[1];
+						}
     	    		}
 				} catch (Exception e) {
 					logger.info("main args [2] missing parameter for messaging token");
@@ -909,7 +913,7 @@ public class ServiceProvider {
 	/**
 	 * Safely try to get the first value from splat
 	 * 
-	 * @param splat
+	 * @param
 	 * @return
 	 */
 	private static String libraryFrom(String path) {

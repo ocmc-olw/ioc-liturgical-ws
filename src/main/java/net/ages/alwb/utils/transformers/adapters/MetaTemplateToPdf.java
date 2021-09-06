@@ -22,7 +22,7 @@ import net.ages.alwb.utils.transformers.adapters.models.OslwCellElement;
 import net.ages.alwb.utils.transformers.adapters.models.OslwRowElement;
 
 /**
- * Liturgical books and services are provided by AGES Initiatives as
+ * Liturgical books and services are provided by GOARCH DCS as
  * html and PDF files, and by OSLW as PDF files.
  * 
  * For both AGES and OSLW, template files are created that specify
@@ -283,7 +283,7 @@ public class MetaTemplateToPdf {
 		this.texFileSb.append(
 				"\\tiny\\textit{Generated ");
 		this.texFileSb.append(ZonedDateTime.now(ZoneOffset.UTC));
-		this.texFileSb.append(" (Universal Time)  using OCMC liturgical software and a template from AGES Initiatives, Inc.}%\n");
+		this.texFileSb.append(" (Universal Time)  using OCMC liturgical software and a template from GOARCH DCS, Inc.}%\n");
 		this.texFileSb.append("\\vfill%\n");
 		this.texFileSb.append("\\pagebreak%\n");
 		this.texFileSb.append("\\end{document}%\n");

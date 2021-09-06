@@ -492,7 +492,10 @@ public class AgesHtmlToLDOM {
 				doc = Jsoup.parse(in, "UTF-8", "http://example.com/");
 			} else {
 				c = Jsoup.connect(url);
-				doc = c.timeout(60*1000).maxBodySize(0).get();
+				doc = c
+						.timeout(60*1000)
+						.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15")
+						.maxBodySize(0).get();
 			}
 			AlwbUrl urlUtils = new AlwbUrl(url);
 			this.timestamp = doc.select("title").attr("data-timestamp");
