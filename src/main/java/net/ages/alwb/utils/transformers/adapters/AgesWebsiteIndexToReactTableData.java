@@ -35,26 +35,23 @@ public class AgesWebsiteIndexToReactTableData {
 	private static final Logger logger = LoggerFactory.getLogger(AgesWebsiteIndexToReactTableData.class);
 	public static String typePdf = "PDF/Print";
 	public static String typeText = "Text/Music";
-//	private String baseUrl = "http://www.agesinitiatives.com/dcs/public/dcs/";
 	private String baseUrl = "https://dcs.goarch.org/goa/dcs/";
 	private String booksPath = "h/b/";
 	private String servicesIndex = baseUrl + "servicesindex.html";
 	private String booksIndex = baseUrl + "booksindex.html";
 	private String jsonservicesIndex = baseUrl + "servicesindex.json";
-	private String olwBaseUrl = "https://books-liml.netlify.app/books/dcs/";
-//	private String olwBaseUrl = "http://www.agesinitiatives.com/dcs/books/dcs/";
+	private String olwBaseUrl = "https://books.liml.org/";
 	private String olwBooksUrl = olwBaseUrl + "booksindex.html";
-	private String agesOcmcBaseUrl = "https://books-liml.netlify.app/ocmc/dcs/";
-//	private String agesOcmcBaseUrl = "http://www.agesinitiatives.com/dcs/ocmc/dcs/";
+	private String agesOcmcBaseUrl = "https://books.liml.org/";
 	private String agesOcmcIndex = "customindex.html";
 	private String agesOcmcJsonIndex = agesOcmcBaseUrl + "h/c/index.json";
 	private String readingsIndex = agesOcmcBaseUrl + agesOcmcIndex;
 	private String theophanyUrl = Constants.LIML_URL + Constants.LIML_STATIC + "theophany.html";
-	private String typikaUrl = Constants.LIML_URL + Constants.LIML_STATIC + "dcs/h/b/ho/s07/h61/gr-en/index.html";
+	private String typikaUrl = Constants.LIML_URL + Constants.LIML_STATIC + "h/b/ho/s07/h61/gr-en/index.html";
 	private String mexicoLiUrl = Constants.LIML_URL + Constants.LIML_STATIC + "mexico/bk.li.chrysbasil.html";
-	private String octoechosUrl = Constants.LIML_URL + Constants.LIML_STATIC + "dcs/h/b/oc/";
-	private String limlBooksUrl = Constants.LIML_URL + Constants.LIML_STATIC + "dcs/h/b/";
-	private String triodionUrl = Constants.LIML_URL + Constants.LIML_STATIC + "tr/h/b/";
+	private String octoechosUrl = agesOcmcBaseUrl + "h/b/oc/";
+	private String limlBooksUrl = Constants.LIML_URL + Constants.LIML_STATIC + "h/b/";
+	private String triodionUrl = agesOcmcBaseUrl + "tr/h/b/";
 	private String basilUrl = Constants.LIML_URL + Constants.LIML_STATIC + "bk.liturgy.basil.html";
 	private String akathistCanon = baseUrl + "h/b/tr/d56_canon/gr-en/index.html";
 	private List<AgesIndexTableRowData> additionalAgesBookRows = new ArrayList<AgesIndexTableRowData>();
@@ -119,7 +116,7 @@ public class AgesWebsiteIndexToReactTableData {
 		row.setDayOfWeek("Sunday");
 		row.setType("Holy Week Bridegroom Service on Sunday Evening - Matins of Holy Monday (Μεγάλη Ἑβδομάδα· Ἀκολουθία τοῦ Νυμφίου τῇ Κυριακῇ τὸ Βράδυ  Ὄρθρος τῆς Μεγάλης Δευτέρας ΑΚΟΛΟΥΘΙΑ ΤΟΥ ΟΡΘΡΟΥ)");
 		row.setDate("Triodion d065");
-		row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/tr/d065/ma/gr-en/index.html");		
+		row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/tr/d065/ma/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
 		// Day 56 Akathist Canon
 		row = new AgesIndexTableRowData(printPretty);
@@ -133,105 +130,105 @@ public class AgesWebsiteIndexToReactTableData {
 		row.setDayOfWeek("Sunday");
 		row.setType("Palm Sunday - On Sunday Evening at Vespers (Κυριακὴ τῶν Βαΐων· Τῇ Κυριακῇ Ἑσπέρας εἰς τὸν Ἑσπερινόν )");
 		row.setDate("Triodion d065");
-		row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/tr/d065/ve/gr-en/index.html");		
+		row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/tr/d065/ve/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
 		// Day 66 Matins
 		row = new AgesIndexTableRowData(printPretty);
 		row.setDayOfWeek("Monday");
 		row.setType("Holy Week -  Bridegroom Service on Monday Evening - Matins of Holy Tuesday (Μεγάλη Ἑβδομάδα· Ἀκολουθία τοῦ Νυμφίου τῇ Δευτέρᾳ τὸ Βράδυ· Ὄρθρος τῆς Μεγάλης Τρίτης)");
 		row.setDate("Triodion d066");
-		row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/tr/d066/ma/gr-en/index.html");		
+		row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/tr/d066/ma/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
 		// Day 66 Presanctified Liturgy
 		row = new AgesIndexTableRowData(printPretty);
 		row.setDayOfWeek("Monday");
 		row.setType("Holy Week - Presanctified Liturgy of Holy Monday - Vespers of Holy Tuesday (Μεγάλη Ἑβδομάδα· Προηγιασμένη Λειτουργία τῆς Μεγάλης Δευτέρας· Ἑσπερινὸς τῆς Μεγάλης Τρίτης)");
 		row.setDate("Triodion d066");
-		row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/tr/d066/pl/gr-en/index.html");		
+		row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/tr/d066/pl/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
 		// Day 67  Matins
 		row = new AgesIndexTableRowData(printPretty);
 		row.setDayOfWeek("Tuesday");
 		row.setType("Holy Week - Bridegroom Service on Tuesday Evening -  Matins of Holy Wednesday (Μεγάλη Ἑβδομάδα·  Ἀκολουθία τοῦ Νυμφίου τῇ Τρίτῃ τὸ Βράδυ· Ὄρθρος τῆς Μεγάλης Τετάρτης)");
 		row.setDate("Triodion d067");
-		row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/tr/d067/ma/gr-en/index.html");		
+		row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/tr/d067/ma/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
 		// Day 67 Presanctified Liturgy
 		row = new AgesIndexTableRowData(printPretty);
 		row.setDayOfWeek("Tuesday");
 		row.setType("Holy Week - Presanctified Liturgy of Holy Tuesday - Vespers of Holy Wednesday (Μεγάλη Ἑβδομάδα· Προηγιασμένη Λειτουργία τῆς Μεγάλης Τρίτης· Ἑσπερινὸς τῆς Μεγάλης Τετάρτης)");
 		row.setDate("Triodion d067");
-		row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/tr/d067/pl/gr-en/index.html");		
+		row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/tr/d067/pl/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
 		// Day 68 Matins
 		row = new AgesIndexTableRowData(printPretty);
 		row.setDayOfWeek("Wedneday");
 		row.setType("Holy Week - Bridegroom Service on Wednesday Evening -  Matins of Holy Thursday (Μεγάλη Ἑβδομάδα·  Ἀκολουθία τοῦ Νυμφίου τῇ Τετάρτῃ  τὸ Βράδυ· Ὄρθρος τῆς Μεγάλης Πέμπτης)");
 		row.setDate("Triodion d068");
-		row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/tr/d068/ma/gr-en/index.html");		
+		row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/tr/d068/ma/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
 		// Day 68 Presanctified Liturgy
 		row = new AgesIndexTableRowData(printPretty);
 		row.setDayOfWeek("Wednesday");
 		row.setType("Holy Week - Presanctified Liturgy of Holy Wednesday - Vespers of Holy Thursday (Μεγάλη Ἑβδομάδα· Προηγιασμένη Λειτουργία τῆς Μεγάλης Τετάρτης· Ἑσπερινὸς τῆς Μεγάλης Πέμπτης)");
 		row.setDate("Triodion d068");
-		row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/tr/d068/pl/gr-en/index.html");		
+		row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/tr/d068/pl/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
 		// Day 69 12 Passion Gospels
 		row = new AgesIndexTableRowData(printPretty);
 		row.setDayOfWeek("Thursday");
 		row.setType("Holy Week - Service of the Twelve Passion Gospels on Thursday Evening - Matins of Holy Friday (Μεγάλη Ἑβδομάδα·  Ἀκολουθία τῶν Ἁγίων Παθῶν τῇ Πέμπτῃ τὸ Βράδυ· Ὄρθρος τῆς Μεγάλης Παρασκευῆς)");
 		row.setDate("Triodion d069");
-		row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/tr/d069/ma/gr-en/index.html");		
+		row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/tr/d069/ma/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
 		// Day 69 Vesperal Liturgy of St. Basil
 		row = new AgesIndexTableRowData(printPretty);
 		row.setDayOfWeek("Thursday");
 		row.setType("Holy Week - Vesperal Liturgy of St. Basil of Holy Thursday -  Vespers of Holy Friday (Μεγάλη Ἑβδομάδα·  Ἑσπερινὴ Λειτουργία Ἁγ. Βασιλείου τῆς Μεγάλης Πέμπτης· Ἑσπερινὸς τῆς Μεγάλης Παρασκευῆς)");
 		row.setDate("Triodion d069");
-		row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/tr/d069/vl/gr-en/index.html");		
+		row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/tr/d069/vl/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
 		// Day 69 Hours
 		row = new AgesIndexTableRowData(printPretty);
 		row.setDayOfWeek("Thursday");
 		row.setType("Holy Week - The Service of Hours on Great and Holy Friday  (Μεγάλη Ἑβδομάδα· ΑΚΟΛΟΥΘΙΑ ΤΩΝ ΩΡΩΝ ΤΗΣ ΑΓΙΑΣ ΚΑΙ ΜΕΓΑΛΗΣ ΠΑΡΑΣΚΕΥΗΣ )");
 		row.setDate("Triodion d069");
-		row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/tr/d069/gh/gr-en/index.html");		
+		row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/tr/d069/gh/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
 		// Day 70 Graveside Lamentations
 		row = new AgesIndexTableRowData(printPretty);
 		row.setDayOfWeek("Friday");
 		row.setType("Holy Week - The Graveside Lamentation on Friday Evening -  Matins of Holy Saturday (Μεγάλη Ἑβδομάδα·  Ὁ Ἐπιτάφιος Θρῆνος τῇ Παρασκευῇ τὸ Βράδυ·  Ὄρθρος τοῦ Μεγάλου Σαββάτου)");
 		row.setDate("Triodion d070");
-		row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/tr/d070/ma/gr-en/index.html");		
+		row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/tr/d070/ma/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
 		// Day 70 The Lamentations
 		row = new AgesIndexTableRowData(printPretty);
 		row.setDayOfWeek("Friday");
 		row.setType("Holy Week - The Lamentations (Μεγάλη Ἑβδομάδα -  Τὰ Ἐγκώμια)");
 		row.setDate("Triodion d070");
-		row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/tr/d070/em3/gr-en/index.html");		
+		row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/tr/d070/em3/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
 		// Day 70 Removal From the Cross
 		row = new AgesIndexTableRowData(printPretty);
 		row.setDayOfWeek("Friday");
 		row.setType("Holy Week -  Removal from the Cross on Friday Afternoon - Vespers of Holy Saturday (Μεγάλη Ἑβδομάδα·  Ἡ Ἀποκαθήλωσις τῇ Παρασκευῇ τὸ Ἀπόγευμα· Ἑσπερινὸς τοῦ Μεγάλου Σαββάτου)");
 		row.setDate("Triodion d070");
-		row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/tr/d070/ve/gr-en/index.html");		
+		row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/tr/d070/ve/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
 		// Day 71 Service before resurrection service
 		row = new AgesIndexTableRowData(printPretty);
 		row.setDayOfWeek("Saturday");
 		row.setType("Holy Week - The Service before the Resurrection on Saturday Evening (Μεγάλη Ἑβδομάδα·  Ἡ Πανηχὶς πρὸ τῆς Ἀναστάσεως τῷ Σαββάτῳ τὸ Βράδυ)");
 		row.setDate("Triodion d071");
-		row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/tr/d071/co1/gr-en/index.html");		
+		row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/tr/d071/co1/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
 		// Day 71 Holy Saturday Vesperal Liturgy of St. Basil
 		row = new AgesIndexTableRowData(printPretty);
 		row.setDayOfWeek("Saturday");
 		row.setType("Holy Week - Holy Saturday -  VESPERAL LITURGY OF ST. BASIL (Μεγάλη Ἑβδομάδα - Τῷ Ἁγίῳ καὶ Μεγάλῳ Σαββάτῳ· ΕΣΠΕΡΙΝΗ ΛΕΙΤΟΥΡΓΙΑ ΑΓ ΒΑΣΙΛΕΟΥ)");
 		row.setDate("Triodion d071");
-		row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/tr/d071/vl/gr-en/index.html");		
+		row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/tr/d071/vl/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
 		
 		/**
@@ -243,14 +240,14 @@ public class AgesWebsiteIndexToReactTableData {
 			row.setDayOfWeek("any");
 			row.setType("Heirmologion - Heirmoi - Mode " + m + " ( Εἱρμολόγιον - Εἱρμοί - " + this.getGreek(m) + ") ");
 			row.setDate("any");
-			row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/he/h/m" + m + "/gr-en/index.html");		
+			row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/he/h/m" + m + "/gr-en/index.html");		
 			this.additionalAgesBookRows.add(row);
 			// automela
 			row = new AgesIndexTableRowData(printPretty);
 			row.setDayOfWeek("any");
 			row.setType("Heirmologion - Automela - Mode " + m + " ( Εἱρμολόγιον - Αυτόμελα - " + this.getGreek(m) + ") ");
 			row.setDate("any");
-			row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/he/a/m" + m + "/gr-en/index.html");		
+			row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/he/a/m" + m + "/gr-en/index.html");		
 			this.additionalAgesBookRows.add(row);
 		}
 		// apolytikion
@@ -258,7 +255,7 @@ public class AgesWebsiteIndexToReactTableData {
 		row.setDayOfWeek("any");
 		row.setType("Heirmologion - General Apolytikia ( Εἱρμολόγιον - Ἀπολυτίκια) ");
 		row.setDate("any");
-		row.setUrl("http://www.agesinitiatives.com/dcs/public/dcs/h/b/he/ga/gr-en/index.html");		
+		row.setUrl("https://dcs.goarch.org/goa/dcs/h/b/he/ga/gr-en/index.html");		
 		this.additionalAgesBookRows.add(row);
 	}
 	
@@ -481,20 +478,20 @@ public class AgesWebsiteIndexToReactTableData {
 				mode.setDate("any");
 				mode.setUrl(limlBooksUrl + path.toString());
 				result.addRow(mode);
-				if (j == 1) {
-					path = new StringBuilder();
-					path.append("oc/m");
-					path.append(i);
-					path.append("/d");
-					path.append(j);
-					path.append("/ma/gr-en/index.html");
-					mode = new AgesIndexTableRowData(printPretty);
-					mode.setDayOfWeek(this.getDayOfWeek(0));
-					mode.setType("Octoechos Mode " + i + " Day " + j);
-					mode.setDate("any");
-					mode.setUrl(limlBooksUrl + path.toString());
-					result.addRow(mode);
-				}
+				// if (j == 1) {
+				// 	path = new StringBuilder();
+				// 	path.append("oc/m");
+				// 	path.append(i);
+				// 	path.append("/d");
+				// 	path.append(j);
+				// 	path.append("/ma/gr-en/index.html");
+				// 	mode = new AgesIndexTableRowData(printPretty);
+				// 	mode.setDayOfWeek(this.getDayOfWeek(0));
+				// 	mode.setType("Octoechos Mode " + i + " Day " + j);
+				// 	mode.setDate("any");
+				// 	mode.setUrl(limlBooksUrl + path.toString());
+				// 	result.addRow(mode);
+				// }
 			}
 		}
 		return result;

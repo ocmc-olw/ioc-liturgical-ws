@@ -1009,7 +1009,7 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 	   * 
 	   * 
 	   * @param requestor - id of user who is making the request
-	   * @param relationshipJson - must be subclass of LTK
+	   * @param json - must be subclass of LTK
 	   * @return
 	   */
 		public RequestStatus addReference(
@@ -1075,7 +1075,7 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 		   * 
 		   * 
 		   * @param requestor - id of user who is making the request
-		   * @param relationshipJson - must be subclass of LTK
+		   * @param json - must be subclass of LTK
 		   * @return
 		   */
 			public RequestStatus addNote(
@@ -3029,7 +3029,6 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 		 * TODO: should create link between its predecessor and successor
 		 * (n:Root:Liturgical)<-[a:NextToken]-(o:WordAnalysis)<-[b:NextToken]- ...etc.
 		 * @param requestor
-		 * @param id
 		 * @param json must be from on object of type LTKDb
 		 * @return
 		 */
@@ -4631,7 +4630,6 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 		}
 		/**
 		 * Get the unique set of labels currently in use for the specified relationship type
-		 * @param type name of the relationship
 		 * @return
 		 */
 		public JsonObject getRelationshipTagsForAllTypes() {
@@ -4906,8 +4904,8 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 			try {
 				AgesWebsiteIndexToReactTableData ages = new AgesWebsiteIndexToReactTableData(this.printPretty);
 				AgesIndexTableData data = ages.toReactTableDataFromJson(AgesWebsiteIndexToReactTableData.typeText);
-				AgesIndexTableData readingData = ages.toReactTableDataFromDailyReadingHtmlUsingJson();
-				data.addList(readingData);
+				// AgesIndexTableData readingData = ages.toReactTableDataFromDailyReadingHtmlUsingJson();
+				// data.addList(readingData);
 				AgesIndexTableData bookData = ages.toReactTableDataFromOlwBooksHtml();
 				data.addList(bookData);
 				List<JsonObject> list = new ArrayList<JsonObject>();
@@ -4941,7 +4939,7 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 		/**
 		 * Gets the title to use for the specified book or service code.
 		 * If not found, will attempt to get the title for en_us_dedes.
-		 * @param AlwbUrl instance using the url of the book or service
+		 * @param url instance using the url of the book or service
 		 * @param titleType "cover" or "header"
 		 * @param library
 		 * @param fallbackLibrary
@@ -5400,7 +5398,7 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 
 		/**
 		 * 
-		 * @param a list of the db IDs to look up
+		 * @param dbIds list of the db IDs to look up
 		 * @return a map with the values populated
 		 */
 		public  Map<String,String> setValues(List<String> dbIds) {
@@ -5448,7 +5446,7 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 		/**
 		 * For the specified library and topic, add values to the collection.
 		 * This is used by the client side ParaColTextEditor component
-		 * @param collection
+		 * @param keymap
 		 * @param library
 		 * @param topic
 		 * @return
@@ -5488,7 +5486,7 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 		 * and the values for corresponding topic/keys in the specified valuesLibrary
 		 * @param library
 		 * @param topic
-		 * @param valuesLibrary
+		 * @param valueLibraries
 		 * @return topicKeys, libraryKeys, and values for the specified library and the valuesLibrary
 		 */
 		public ResultJsonObjectArray getTopicValuesForParaColTextEditor(
@@ -5677,7 +5675,7 @@ public class ExternalDbManager implements HighLevelDataStoreInterface{
 		
 		/**
 		 * Get a JsonArray of the instances for the specified type of ontology
-		 * @param username
+		 * @param type
 		 * @return
 		 */
 		public JsonArray getDropdownInstancesForOntologyType(String type) {

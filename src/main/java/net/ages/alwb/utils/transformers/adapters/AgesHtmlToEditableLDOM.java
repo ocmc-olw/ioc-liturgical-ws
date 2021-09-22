@@ -104,7 +104,7 @@ public class AgesHtmlToEditableLDOM {
 	        	String tdClass = this.getClassOfTd(valueSpan);
 	        	String dataKey = valueSpan.attr("data-key");
 	        	String [] parts = dataKey.split("\\|");
-	        	if (parts.length == 0) {
+	        	if (parts.length < 2) {
 	        		continue;
 	        	}
 	        	String key = parts[1];
@@ -237,7 +237,7 @@ public class AgesHtmlToEditableLDOM {
 					if (child.hasAttr("data-key")) {
 			        	String dataKey = child.attr("data-key");
 			        	String [] parts = dataKey.split("\\|");
-			        	if (parts.length == 0) {
+			        	if (parts.length < 2) {
 			        		continue;
 			        	}
 			        	String key = parts[1];
@@ -297,6 +297,12 @@ public class AgesHtmlToEditableLDOM {
 			result = new LDOM(url, timestamp, printPretty);
 
 			content = doc.select("div.content").first();
+			// Fr. Seraphim added tags before the table that need to be removed.
+			Elements theTable = content.select("#biTable");
+			content.children().remove();
+			for (Element child : theTable) {
+				content.appendChild(child);
+			}
 			// remove rows that contain a media-group
 			content.select("tr:has(div.media-group)").remove();
 			content.select("tr:has(div.media-group-empty)").remove();

@@ -529,6 +529,13 @@ public class AgesHtmlToLDOM {
 			doc.select("tr:has(div.media-group)").remove();
 			doc.select("tr:has(div.media-group-empty)").remove();
 			content = doc.select("div.content").first();
+			// Fr. Seraphim added tags before the table that need to be removed.
+			Elements theTable = content.select("#biTable");
+			content.children().remove();
+			for (Element child : theTable) {
+				content.appendChild(child);
+			}
+
 			Elements boldredSpans = content.select("span.boldred");
 			this.setLectionaryDates(boldredSpans);
 			Elements versionDesignations = content.select("span.versiondesignation");

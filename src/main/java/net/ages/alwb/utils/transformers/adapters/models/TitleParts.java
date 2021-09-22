@@ -49,11 +49,7 @@ public class TitleParts {
 			} else {
 				URI uri = new URI(this.url);
 				String [] uriParts = null;
-				if (uri.getPath().contains("liml.org/static")) {
-					uriParts = uri.getPath().split("dcs/h/");
-				} else {
-					uriParts = uri.getPath().split("dcs/h/");
-				}
+				uriParts = uri.getPath().split("dcs/h/");
 				uriParts = uriParts[uriParts.length-1].split("/");
 				this.isService = uriParts[0].equals("se");
 				if (this.isService) {

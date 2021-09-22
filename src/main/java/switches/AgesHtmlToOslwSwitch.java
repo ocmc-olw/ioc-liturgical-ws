@@ -31,6 +31,7 @@ public class AgesHtmlToOslwSwitch {
 		} catch (Exception e) {
 			// ignore
 		}
+		strCommand = strCommand.replace("-optional", "");
 		String result = "";
 		switch (strCommand) {
 		case "-key": {
@@ -45,11 +46,6 @@ public class AgesHtmlToOslwSwitch {
 		case "p-actor": {
 		// {actors}{Priest} (http://www.agesinitiatives.com/dcs/public/dcs/h/b/baptism/gr-en/index.html)
 			result = "ActorSingleLine";
-			break;
-		}
-		case "p-actor-key": {
-		//  (http://www.agesinitiatives.com/dcs/public/dcs/h/b/greatwaterblessing/gr-en/index.html)
-			result = "Undefined";
 			break;
 		}
 		case "p-actor-rubric": {

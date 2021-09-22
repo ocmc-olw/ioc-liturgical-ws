@@ -1,0 +1,644 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "env": {
+                "WS_PWD": "ggog?vGxxRra7x8#VEcreov>vE7MX"
+              }
+        },
+        {
+            "type": "java",
+            "name": "Launch ConvertNodes",
+            "request": "launch",
+            "mainClass": "delete.me.ConvertNodes",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch CountMissing",
+            "request": "launch",
+            "mainClass": "delete.me.CountMissing",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch CypherTest",
+            "request": "launch",
+            "mainClass": "delete.me.CypherTest",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch FileUrlTest",
+            "request": "launch",
+            "mainClass": "delete.me.FileUrlTest",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch FindGitDirs",
+            "request": "launch",
+            "mainClass": "delete.me.FindGitDirs",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch Formatter",
+            "request": "launch",
+            "mainClass": "delete.me.Formatter",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch GsonToNeo",
+            "request": "launch",
+            "mainClass": "delete.me.GsonToNeo",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch HorologionLoader",
+            "request": "launch",
+            "mainClass": "delete.me.HorologionLoader",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch HtmlToLatex",
+            "request": "launch",
+            "mainClass": "delete.me.HtmlToLatex",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch LinesOfCode",
+            "request": "launch",
+            "mainClass": "delete.me.LinesOfCode",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch LoadSemanticDomains",
+            "request": "launch",
+            "mainClass": "delete.me.LoadSemanticDomains",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch LocalDateTest",
+            "request": "launch",
+            "mainClass": "delete.me.LocalDateTest",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch MitJwiTest",
+            "request": "launch",
+            "mainClass": "delete.me.MitJwiTest",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch MixedClassTest",
+            "request": "launch",
+            "mainClass": "delete.me.MixedClassTest",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch Neo4jBibleKeyNormalizer",
+            "request": "launch",
+            "mainClass": "delete.me.Neo4jBibleKeyNormalizer",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch Neo4jQueryResult",
+            "request": "launch",
+            "mainClass": "delete.me.Neo4jQueryResult",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch Neo4jQuickAndDirty",
+            "request": "launch",
+            "mainClass": "delete.me.Neo4jQuickAndDirty",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch Neo4jToJson",
+            "request": "launch",
+            "mainClass": "delete.me.Neo4jToJson",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch NoteSequence",
+            "request": "launch",
+            "mainClass": "delete.me.NoteSequence",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch Octoechos",
+            "request": "launch",
+            "mainClass": "delete.me.Octoechos",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch OlwLabelsToDb",
+            "request": "launch",
+            "mainClass": "delete.me.OlwLabelsToDb",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch PentecostarionLoader",
+            "request": "launch",
+            "mainClass": "delete.me.PentecostarionLoader",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch RestAssuredAsClient",
+            "request": "launch",
+            "mainClass": "delete.me.RestAssuredAsClient",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch RunMeToGetLiturgicalProperties",
+            "request": "launch",
+            "mainClass": "delete.me.RunMeToGetLiturgicalProperties",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch StringMemory",
+            "request": "launch",
+            "mainClass": "delete.me.StringMemory",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch SubStringTest",
+            "request": "launch",
+            "mainClass": "delete.me.SubStringTest",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch SubVerse",
+            "request": "launch",
+            "mainClass": "delete.me.SubVerse",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch TextAlignment",
+            "request": "launch",
+            "mainClass": "delete.me.TextAlignment",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch TriodionLoader",
+            "request": "launch",
+            "mainClass": "delete.me.TriodionLoader",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch UnicodeTest",
+            "request": "launch",
+            "mainClass": "delete.me.UnicodeTest",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch UnirestGet",
+            "request": "launch",
+            "mainClass": "delete.me.UnirestGet",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch UniversalDependency",
+            "request": "launch",
+            "mainClass": "delete.me.UniversalDependency",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch UserSelfView",
+            "request": "launch",
+            "mainClass": "delete.me.UserSelfView",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch WordnetNeo4j",
+            "request": "launch",
+            "mainClass": "delete.me.WordnetNeo4j",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch DeleteMe",
+            "request": "launch",
+            "mainClass": "ioc.liturgical.test.framework.DeleteMe",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch ServiceProvider",
+            "request": "launch",
+            "mainClass": "ioc.liturgical.ws.app.ServiceProvider",
+            "projectName": "liturgical-ws",
+            "env": {
+                "WS_PWD": ">ggog?vGxxRra7x8#VEcreov>vE7MX"
+              }
+
+        },
+        {
+            "type": "java",
+            "name": "Launch IsoCountries",
+            "request": "launch",
+            "mainClass": "ioc.liturgical.ws.constants.IsoCountries",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch IsoLanguages",
+            "request": "launch",
+            "mainClass": "ioc.liturgical.ws.constants.IsoLanguages",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch DomainTopicMapBuilder",
+            "request": "launch",
+            "mainClass": "ioc.liturgical.ws.managers.databases.external.neo4j.utils.DomainTopicMapBuilder",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch NodeLabelsParser",
+            "request": "launch",
+            "mainClass": "ioc.liturgical.ws.managers.databases.external.neo4j.utils.NodeLabelsParser",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch KeyNameParts",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.gateway.library.ares.KeyNameParts",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch MainForQuickFixes",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.gateway.library.ares.MainForQuickFixes",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch PointerIndex",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.gateway.library.ares.PointerIndex",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch CommonFileUtils",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.gateway.utils.CommonFileUtils",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch AresToNeo4j",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.loaders.AresToNeo4j",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch EthnologueToNeo4j",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.loaders.EthnologueToNeo4j",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch JsonLabelsToNeo4j",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.loaders.JsonLabelsToNeo4j",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch Neo2Neo",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.loaders.Neo2Neo",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch TaskRunnerCapitalizeSpanishCalendar",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.tasks.runner.TaskRunnerCapitalizeSpanishCalendar",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch TaskRunnerCopyLiturgicalTexts",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.tasks.runner.TaskRunnerCopyLiturgicalTexts",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch TaskRunnerCreateNnpFirstFive",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.tasks.runner.TaskRunnerCreateNnpFirstFive",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch TaskRunnerFixCalDays",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.tasks.runner.TaskRunnerFixCalDays",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch TaskRunnerIndexAgesHtml",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.tasks.runner.TaskRunnerIndexAgesHtml",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch TaskRunnerOlwTemplateTokenCounts",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.tasks.runner.TaskRunnerOlwTemplateTokenCounts",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch TaskRunnerTokenCounts",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.tasks.runner.TaskRunnerTokenCounts",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch TaskRunnerUdLoader",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.tasks.runner.TaskRunnerUdLoader",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch TaskRunnerUdTags",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.tasks.runner.TaskRunnerUdTags",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch TaskRunnerVerifyIdsAreUnique",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.tasks.runner.TaskRunnerVerifyIdsAreUnique",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch PasswordHasher",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.auth.PasswordHasher",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch Example2JsonDb",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.datastores.db.h2.examples.Example2JsonDb",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch ExampleJsonDb",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.datastores.db.h2.examples.ExampleJsonDb",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch ExampleJsonDb3WriteABunch",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.datastores.db.h2.examples.ExampleJsonDb3WriteABunch",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch ExampleJsonDbWithJsonValue",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.datastores.db.h2.examples.ExampleJsonDbWithJsonValue",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch ExampleNormalSql",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.datastores.db.h2.examples.ExampleNormalSql",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch RunToDumpSynchHistory",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.datastores.db.h2.utils.RunToDumpSynchHistory",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch RunToGetHistoryRecordsForSpecificTopic",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.datastores.db.h2.utils.RunToGetHistoryRecordsForSpecificTopic",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch RunToGetSpecificHistoryRecord",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.datastores.db.h2.utils.RunToGetSpecificHistoryRecord",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch RunToListAllTableNames",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.datastores.db.h2.utils.RunToListAllTableNames",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch RunToViewRowsInDatabases",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.datastores.db.h2.utils.RunToViewRowsInDatabases",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch Neo4jAddConstraintsForAllTopics",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.datastores.db.neo4j.utilities.Neo4jAddConstraintsForAllTopics",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch Neo4jConvertBiblicalText",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.datastores.db.neo4j.utilities.Neo4jConvertBiblicalText",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch Neo4jConvertLiturgicalText",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.datastores.db.neo4j.utilities.Neo4jConvertLiturgicalText",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch Neo4jDropAllConstraints",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.datastores.db.neo4j.utilities.Neo4jDropAllConstraints",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch Neo4jRenameLabel",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.datastores.db.neo4j.utilities.Neo4jRenameLabel",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch CheckSum",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.file.CheckSum",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch IdManager",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.id.managers.IdManager",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch SystemTestProperties",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.core.misc.SystemTestProperties",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch UnicodeGreekToExtendedGreek",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.nlp.constants.UnicodeGreekToExtendedGreek",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch TextParser",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.nlp.parsers.TextParser",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch AgesTokenCount",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.nlp.reports.AgesTokenCount",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch HtmlFileTokenCount",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.nlp.reports.HtmlFileTokenCount",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch OlwTemplateTokenCounter",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.nlp.reports.OlwTemplateTokenCounter",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch OslwTokenCount",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.nlp.reports.OslwTokenCount",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch NlpUtils",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.nlp.utils.NlpUtils",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch RunToDumpUnicodeBlocks",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.nlp.utils.RunToDumpUnicodeBlocks",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch NeoHeirmologion",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.transformers.NeoHeirmologion",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch RunToWriteUiLabelsToWebStormProject",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.transformers.RunToWriteUiLabelsToWebStormProject",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch BatchPdfGenerator",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.transformers.adapters.BatchPdfGenerator",
+            "projectName": "liturgical-ws"
+        },
+        {
+            "type": "java",
+            "name": "Launch JsoupToHtml",
+            "request": "launch",
+            "mainClass": "net.ages.alwb.utils.transformers.adapters.JsoupToHtml",
+            "projectName": "liturgical-ws"
+        }
+    ]
+}
