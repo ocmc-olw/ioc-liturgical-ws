@@ -1486,7 +1486,6 @@ public class InternalDbManager implements HighLevelDataStoreInterface {
 						, ROLES.ADMIN
 						, Constants.DOMAINS_LIB
 						);
-	
 				initializeUser(
 						"adminForEnUsDedes"
 						, "admin"

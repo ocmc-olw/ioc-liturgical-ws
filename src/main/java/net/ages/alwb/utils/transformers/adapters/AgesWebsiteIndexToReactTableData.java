@@ -48,6 +48,9 @@ public class AgesWebsiteIndexToReactTableData {
 	private String readingsIndex = agesOcmcBaseUrl + agesOcmcIndex;
 	private String theophanyUrl = Constants.LIML_URL + Constants.LIML_STATIC + "theophany.html";
 	private String typikaUrl = Constants.LIML_URL + Constants.LIML_STATIC + "h/b/ho/s07/h61/gr-en/index.html";
+    // durham
+	private String durhamLiUrl = Constants.LIML_URL + Constants.LIML_STATIC + "durham/bk.li.chrys.html";
+	// mexico
 	private String mexicoLiUrl = Constants.LIML_URL + Constants.LIML_STATIC + "mexico/bk.li.chrysbasil.html";
 	private String octoechosUrl = agesOcmcBaseUrl + "h/b/oc/";
 	private String limlBooksUrl = Constants.LIML_URL + Constants.LIML_STATIC + "h/b/";
@@ -395,6 +398,13 @@ public class AgesWebsiteIndexToReactTableData {
 			theophany.setDate("m01/d06");
 			theophany.setUrl(theophanyUrl);
 			result.addRow(theophany);
+
+			AgesIndexTableRowData liDurham = new AgesIndexTableRowData(printPretty);
+			liDurham.setDayOfWeek("any");
+			liDurham.setType("Durham - Divine Liturgy of St. John Chrysostom");
+			liDurham.setDate("any");
+			liDurham.setUrl(durhamLiUrl);
+			result.addRow(liDurham);
 
 			AgesIndexTableRowData liMexico = new AgesIndexTableRowData(printPretty);
 			liMexico.setDayOfWeek("any");
