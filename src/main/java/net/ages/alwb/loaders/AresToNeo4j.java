@@ -117,7 +117,7 @@ public class AresToNeo4j {
 //		domainsToProcess.add("fra_FR_oaf");
 //		domainsToProcess.add("spa_GT_odg");
 		/**
-		 * Prepare a list to hold the create Queries
+		 * Prepare a list to hold the created Queries
 		 */
 		List<TextLiturgical> textsToCreate = new ArrayList<TextLiturgical>();
 
