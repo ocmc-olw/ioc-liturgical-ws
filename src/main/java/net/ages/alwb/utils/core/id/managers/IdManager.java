@@ -213,19 +213,19 @@ public class IdManager {
 	 * @return
 	 */
 	public String getId() {
-		if (idParts.size() > 1) {
+//		if (idParts.size() > 1) {
 			return Joiner.on(Constants.ID_DELIMITER).join(idParts);
-		} else {
-			return idParts.get(0);
-		}
+//		} else {
+//			return idParts.get(0);
+//		}
 	} 
 	
 	public String getLibrary() {
-		if (this.libraryParts.size() > 1) {
+//		if (this.libraryParts.size() > 1) {
 			return Joiner.on(Constants.ID_DELIMITER).join(this.libraryParts);
-		} else {
-			return this.libraryParts.get(0);
-		}
+//		} else {
+//			return this.libraryParts.get(0);
+//		}
 	}
 	
 	public void setLibrary(String library) {
@@ -240,11 +240,11 @@ public class IdManager {
 	}
 
 	public String getTopic() {
-		if (this.topicParts.size() > 1) {
+//		if (this.topicParts.size() > 1) {
 			return Joiner.on(Constants.ID_DELIMITER).join(this.topicParts);
-		} else {
-			return this.topicParts.get(0);
-		}
+//		} else {
+//			return this.topicParts.get(0);
+//		}
 	}
 	
 	public String getTopicKey() {
@@ -252,11 +252,11 @@ public class IdManager {
 	}
 
 	public String getKey() {
-		if (this.keyParts.size() > 1) {
+//		if (this.keyParts.size() > 1) {
 			return Joiner.on(Constants.ID_DELIMITER).join(this.keyParts);
-		} else {
-			return this.keyParts.get(0);
-		}
+//		} else {
+//			return this.keyParts.get(0);
+//		}
 	}
 
 	/**
@@ -394,7 +394,7 @@ public String getOslwResourceForValue(String value) {
 		sb.append("}%\n");
 		
 		// if this value is an actor, then also add a version that has a colon
-		if (this.topicParts.get(0).equals("actors")) {
+		if (this.topicParts.size() > 0 && this.topicParts.get(0).equals("actors") && this.keyParts.size() > 0) {
 			sb.append("\\itId{");
 			sb.append(this.libraryLanguage);
 			sb.append("}{");
@@ -437,6 +437,7 @@ public String getOslwRid() {
 }
 
 public String getOslwSid() {
+	if (this.topicParts.size() > 0 && this.keyParts.size() > 0) {
 	StringBuffer sb = new StringBuffer();
 	sb.append("\\itSid");
 	sb.append("{");
@@ -451,6 +452,8 @@ public String getOslwSid() {
 	sb.append(this.keyParts.get(0));
 	sb.append("}\n");
 	return sb.toString();
+	}
+	return "";
 }
 
 
