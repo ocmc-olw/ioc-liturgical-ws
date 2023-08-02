@@ -392,6 +392,17 @@ public class AgesHtmlToLDOM {
 			        	if (dataKey.length() < 5) {
 			        		continue;
 			        	}
+						// if dataKey is in the ALWB data-key format,
+						// convert to the tilde format.
+						if (dataKey.contains("|")) {
+							String[] parts = dataKey.split("\\|");
+							if (parts.length == 2) {
+							  String[] moreParts = parts[0].split("_");
+							  if (moreParts.length == 4) {
+                                dataKey = String.format("%s_%s_%s~%s~%s", moreParts[1], moreParts[2], moreParts[3], moreParts[0], parts[1]);
+							  }
+							}
+						}
 			        	IdManager idManager = new IdManager(dataKey);
 						eChild.setDataKey(idManager.getId());
 						eChild.setTopicKey(idManager.getTopicKey());
