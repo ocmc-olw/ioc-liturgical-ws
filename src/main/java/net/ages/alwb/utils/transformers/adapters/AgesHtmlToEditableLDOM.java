@@ -336,10 +336,10 @@ public class AgesHtmlToEditableLDOM {
 								int intDay = Integer.parseInt(parts[1].trim());
 								day = String.format("%02d", intDay);
 							} else {
-								logger.info("Unexpected text format.  Not a date? " + text);
+								continue;
 							}
 						} else {
-							logger.info("Unexpected text format.  Not a date? " + text);
+							continue;
 						}
 						String newKey = "calendar_" 
 								+ library 
