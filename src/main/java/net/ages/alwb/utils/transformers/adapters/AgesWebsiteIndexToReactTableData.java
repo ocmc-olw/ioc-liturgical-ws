@@ -47,7 +47,6 @@ public class AgesWebsiteIndexToReactTableData {
 	private String agesOcmcJsonIndex = agesOcmcBaseUrl + "h/c/index.json";
 	private String readingsIndex = agesOcmcBaseUrl + agesOcmcIndex;
 	private String theophanyUrl = Constants.LIML_URL + Constants.LIML_STATIC + "theophany.html";
-	private String typikaUrl = Constants.LIML_URL + Constants.LIML_STATIC + "h/b/ho/s07/h61/gr-en/index.html";
     // durham
 	private String durhamLiUrl = Constants.LIML_URL + Constants.LIML_STATIC + "durham/bk.li.chrys.html";
 	// mexico
@@ -70,9 +69,79 @@ public class AgesWebsiteIndexToReactTableData {
 	}
 	
 	private void addAdditionalUrls() {
-		String base = this.baseUrl + this.booksPath;
+		String base = this.olwBaseUrl + this.booksPath;
 		AgesIndexTableRowData row = new AgesIndexTableRowData(printPretty);
+		row.setDayOfWeek("any");
+		row.setType("Baptism");
+		row.setDate("any");
+		row.setUrl(base + "baptism/gr-en/index.html");
+		this.additionalAgesBookRows.add(row);
 
+		// row = new AgesIndexTableRowData(printPretty);
+		// row.setDayOfWeek("any");
+		// row.setType("");
+		// row.setDate("any");
+		// row.setUrl(base + "");
+		// this.additionalAgesBookRows.add(row);
+
+
+		row = new AgesIndexTableRowData(printPretty);
+		row.setDayOfWeek("any");
+		row.setType("Blessing of Loaves");
+		row.setDate("any");
+		row.setUrl(base + "blessingofloaves/gr-en/index.html");
+		this.additionalAgesBookRows.add(row);
+
+		row = new AgesIndexTableRowData(printPretty);
+		row.setDayOfWeek("any");
+		row.setType("Funeral");
+		row.setDate("any");
+		row.setUrl(base + "funeral/gr-en/index.html");
+		this.additionalAgesBookRows.add(row);
+		
+		row = new AgesIndexTableRowData(printPretty);
+		row.setDayOfWeek("any");
+		row.setType("Funeral (Bright Week)");
+		row.setDate("any");
+		row.setUrl(base + "funeral_brightweek/gr-en/index.html");
+		this.additionalAgesBookRows.add(row);
+
+		row = new AgesIndexTableRowData(printPretty);
+		row.setDayOfWeek("any");
+		row.setType("Great Water Blessing");
+		row.setDate("any");
+		row.setUrl(base + "greatwaterblessing/gr-en/index.html");
+		this.additionalAgesBookRows.add(row);
+
+		row = new AgesIndexTableRowData(printPretty);
+		row.setDayOfWeek("any");
+		row.setType("Memorial");
+		row.setDate("any");
+		row.setUrl(base + "memorial/gr-en/index.html");
+		this.additionalAgesBookRows.add(row);
+
+		row = new AgesIndexTableRowData(printPretty);
+		row.setDayOfWeek("any");
+		row.setType("Small Water Blessing");
+		row.setDate("any");
+		row.setUrl(base + "smallwaterblessing/gr-en/index.html");
+		this.additionalAgesBookRows.add(row);
+
+		row = new AgesIndexTableRowData(printPretty);
+		row.setDayOfWeek("any");
+		row.setType("Unction");
+		row.setDate("any");
+		row.setUrl(base + "unction/gr-en/index.html");
+		this.additionalAgesBookRows.add(row);
+
+		row = new AgesIndexTableRowData(printPretty);
+		row.setDayOfWeek("any");
+		row.setType("Wedding");
+		row.setDate("any");
+		row.setUrl(base + "wedding/gr-en/index.html");
+		this.additionalAgesBookRows.add(row);
+
+		row = new AgesIndexTableRowData(printPretty);
 		row.setDayOfWeek("any");
 		row.setType("Liturgy of St. Chrysostom");
 		row.setDate("any");

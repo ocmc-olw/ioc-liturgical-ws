@@ -24,7 +24,6 @@ import org.ocmc.ioc.liturgical.utils.ErrorUtils;
 
 import net.ages.alwb.utils.core.id.managers.IdManager;
 import net.ages.alwb.utils.core.misc.AlwbUrl;
-import net.ages.alwb.utils.transformers.adapters.models.LdomTitleRow;
 
 
 /**
